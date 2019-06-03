@@ -1,0 +1,84 @@
+{
+	"name": "TESTING_LOOP",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach_insertion",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Lookup_state",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup_state').output.value",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "call  Stored Procedure",
+							"type": "SqlServerStoredProcedure",
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"typeProperties": {
+								"storedProcedureName": "[dbo].[Test_loop_sp]",
+								"storedProcedureParameters": {
+									"state_run": {
+										"value": {
+											"value": "@item().state_name",
+											"type": "Expression"
+										},
+										"type": "String"
+									}
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "AzureSqlDatabase1",
+								"type": "LinkedServiceReference"
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "Lookup_state",
+				"type": "Lookup",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource",
+						"sqlReaderQuery": "select Distinct state_name from dbo.test_loop_from"
+					},
+					"dataset": {
+						"referenceName": "lookedupdata_state",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			}
+		],
+		"parameters": {
+			"STATE_RUN": {
+				"type": "string",
+				"defaultValue": "WB"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,41 @@
+{
+	"name": "file_based_looping",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DAE_adls_gen1",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureDataLakeStoreFile",
+		"structure": [
+			{
+				"name": "Run_Id",
+				"type": "Int32"
+			},
+			{
+				"name": "State_name",
+				"type": "String"
+			},
+			{
+				"name": "place_name",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"rowDelimiter": "",
+				"nullValue": "\\N",
+				"treatEmptyAsNull": true,
+				"skipLineCount": 0,
+				"firstRowAsHeader": false
+			},
+			"fileName": {
+				"value": "@concat('loop_', item().state_run ,'.txt')",
+				"type": "Expression"
+			},
+			"folderPath": "looping_data"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

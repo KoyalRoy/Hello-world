@@ -1,0 +1,21 @@
+{
+	"name": "dsgen2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lsgen2",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureBlobFSFile",
+		"structure": [
+			{
+				"name": "Prop_0",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"fileName": "",
+			"folderPath": "poc"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

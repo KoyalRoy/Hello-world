@@ -1,0 +1,15 @@
+{
+	"name": "DAE_adls_gen1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "AzureDataLakeStore",
+		"typeProperties": {
+			"dataLakeStoreUri": "https://datavirtualizationlake.azuredatalakestore.net/webhdfs/v1",
+			"servicePrincipalId": "717e404d-7dab-496e-a9b2-81975b250666",
+			"tenant": "bd3eeefe-e2f5-40d6-abc6-bbb9c8f48d03",
+			"subscriptionId": "a87c8ea8-69d9-4ec9-a22a-f00bb677e5cd",
+			"resourceGroupName": "MAHSEU-RGP-0618331-ENT_MANAGEMENT_DEV",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkFERkRBRVYyX2MxMTRmNDUxLTA4YTUtNGE4OS05YjI5LTMyNGVjODdmOWI5MCINCn0="
+		}
+	}
+}

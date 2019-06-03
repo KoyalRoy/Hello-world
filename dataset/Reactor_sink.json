@@ -1,0 +1,23 @@
+{
+	"name": "Reactor_sink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStore1_test",
+			"type": "LinkedServiceReference"
+		},
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureDataLakeStoreLocation",
+				"fileName": "reactor.txt",
+				"folderPath": "looping_data"
+			},
+			"columnDelimiter": "\t",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

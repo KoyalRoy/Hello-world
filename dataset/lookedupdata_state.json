@@ -1,0 +1,28 @@
+{
+	"name": "lookedupdata_state",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "Run_ID",
+				"type": "Int32"
+			},
+			{
+				"name": "state_name",
+				"type": "String"
+			},
+			{
+				"name": "place_name",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[test_loop_to]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

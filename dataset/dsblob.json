@@ -1,0 +1,15 @@
+{
+	"name": "dsblob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lsblob",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureBlob",
+		"typeProperties": {
+			"fileName": "PowerBIQuery.txt",
+			"folderPath": "myfolder"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
